@@ -1,101 +1,99 @@
+"use client";  
+
 import Image from "next/image";
+import { useState } from "react";
+import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
 
-export default function Home() {
+const images = ["/images/blue.jpg", "/images/red.jpg", "/images/green.jpg"];
+
+export default function Portfolio() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => setCurrentImage((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="grid grid-cols-2 gap-4 p-8">
+      {/* Headline & Navbar */}
+      <div className="row-span-1 text-4xl pt-20 pl-10 pr-10 font-bold bg-richBlack rounded-2xl"> Engineering The Code You Wish And Making Your Needs Become True. </div>
+      
+      {/* Image & Name Section */}
+      <div className="flex w-full gap-4">
+        <div className="flex-1">
+          <Image 
+            src="/images/pfplinkediv2n.png" 
+            width={500} 
+            height={500} 
+            className="w-full h-auto rounded-2xl object-cover" 
+            alt="Profile" 
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="flex-1 relative">
+          {/* Positioned Text */}
+          <div className="absolute top-2 left-2 text-white bg-richBlack bg-opacity-50 px-2 py-1 rounded-md font-bold">
+            Based in:
+          </div>
+
+          {/* Image */}
+          <Image 
+            src="/images/location.png" 
+            width={500} 
+            height={500} 
+            className="w-full h-auto rounded-2xl object-cover bg-richBlack h-full" 
+            alt="Profile" 
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="grid grid-cols-3 gap-4">
+        <div className="bg-brightPink p-6 text-center rounded-2xl">
+          <div className="text-2xl font-bold">100+</div>
+          <div>Projects</div>
+        </div>
+        <div className="bg-lapisLazuli p-6 text-center rounded-2xl">
+          <div className="text-2xl font-bold">50+</div>
+          <div>Clients</div>
+        </div>
+        <div className="bg-pigmentGreen p-6 text-center rounded-2xl">
+          <div className="text-2xl font-bold">5+</div>
+          <div>Years Experience</div>
+        </div>
+      </div>
+
+      {/* Name + Info Section */}
+      <div className="flex flex-col items-center w-full bg-richBlack rounded-2xl pt-7 pb-7">
+        <div className="text-lg font-semibold">Dercio Fernandes</div>
+        
+        <div className="flex gap-4 mt-2">
+          <FaLinkedin size={24} />
+          <FaInstagram size={24} />
+          <FaFacebook size={24} />
+          <FaEnvelope size={24} />
+        </div>
+      </div>
+      
+      {/* Gallery & About Section */}
+      <div className="rounded-2xl bg-richBlack flex flex-col items-center p-4">
+        <h3 className="text-2xl font-bold mb-4">My Projects</h3>
+        
+        {/* Row Layout for Gallery */}
+        <div className="flex flex-row items-center justify-center space-x-4">
+          {/* Previous Arrow */}
+          <button onClick={prevImage} className="text-white text-3xl">⬅</button>
+          
+          {/* Image Display */}
+          <Image src={images[currentImage]} width={200} height={150} alt="Gallery" className="rounded-lg" />
+          
+          {/* Next Arrow */}
+          <button onClick={nextImage} className="text-white text-3xl">➡</button>
+        </div>
+      </div>
+
+      <div className="rounded-2xl bg-richBlack">
+        <h2 className="pt-5 pl-5 pr-5 text-2xl font-bold">About</h2>
+        <p className="pt-1 pl-5 pr-5 mt-2 text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+      </div>
     </div>
   );
 }

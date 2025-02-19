@@ -11,6 +11,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        lapisLazuli: "#2660A4",
+        bone: "#E0DDCF",
+        richBlack: "#0F0E1B",
+        pigmentGreen: "#069E2D",
+        brightPink: "#EF476F",
+        tangerine: "#F18701"
       },
     },
   },
