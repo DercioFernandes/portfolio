@@ -8,6 +8,23 @@ import "leaflet/dist/leaflet.css";
 import { LatLngExpression } from "leaflet";
 import { motion } from "framer-motion";
 import MapWrapper from "./MapWrapper";
+import IntroScreen from "./IntroScreen";
+
+export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 2200); // 4 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="w-full h-screen flex items-center justify-center">
+      {showIntro ? <IntroScreen /> : <Portfolio />}
+    </div>
+  );
+}
+
 
 const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png"];
 
@@ -20,7 +37,7 @@ const links = [
 const position: LatLngExpression = [55.857671413317064, 9.851414821036256]; // Explicitly typed
 
  
-export default function Portfolio() {
+export function Portfolio() {
 
   const [currentImage, setCurrentImage] = useState(0);
 
