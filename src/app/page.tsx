@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
-import { LatLngExpression } from "leaflet";
 import { motion } from "framer-motion";
 import MapWrapper from "./MapWrapper";
 import IntroScreen from "./IntroScreen";
