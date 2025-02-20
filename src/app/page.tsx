@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { LatLngExpression } from "leaflet";
 
 const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png"];
 
@@ -13,7 +16,29 @@ const links = [
   "https://github.com/DercioFernandes/Kiseki-Fighters"
 ];
 
+const position: LatLngExpression = [55.857671413317064, 9.851414821036256]; // Explicitly typed
+
+const MapComponent = () => {
+  return (
+    <MapContainer 
+      center={position} 
+      zoom={10} 
+      className="w-full h-full rounded-2xl"
+      scrollWheelZoom={false}
+    >
+      <TileLayer
+        url="https://tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token=j6h8gi3X9cNNp1wDLdsa4zrGbJXdiEIMV5QwuSQfpO5J3MzoyYqSjMXvJqp55WOD"
+        attribution='&copy; <a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank"><b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+
+    </MapContainer>
+  );
+};
+
+export { MapComponent };
+ 
 export default function Portfolio() {
+
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => setCurrentImage((prev) => (prev + 1) % images.length);
@@ -40,18 +65,15 @@ export default function Portfolio() {
         {/* Right: Name & Info Section */}
         <div className="flex flex-col h-full relative">
           {/* Positioned "Based in" Text */}
-          <div className="absolute top-2 left-2 text-richBlack bg-bone bg-opacity-50 px-2 py-1 rounded-md font-bold z-10">
+          <div className="absolute top-2 left-2 text-bone bg-opacity-50 px-2 py-1 ml-10 rounded-md font-bold z-20">
             Based in:
           </div>
 
-          {/* Location Image */}
-          <Image 
-            src="/images/location3.png" 
-            width={200} 
-            height={200} 
-            className="w-full rounded-2xl object-cover bg-bone" 
-            alt="Location" 
-          />
+          {/* Map Component */}
+          <div className="w-full h-full rounded-2xl overflow-hidden relative z-10">
+            <MapComponent />
+          </div>
+
 
           {/* Name + Info Section */}
           <div className="flex flex-col items-center w-full bg-tangerine rounded-2xl flex-grow justify-center p-7 mt-5">
@@ -64,6 +86,7 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
+
       </div>
 
 
