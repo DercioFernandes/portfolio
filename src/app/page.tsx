@@ -3,8 +3,15 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
+import Link from "next/link";
 
-const images = ["/images/blue.jpg", "/images/red.jpg", "/images/green.jpg"];
+const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png"];
+
+const links = [
+  "https://github.com/XRD-Group-11/VR-CS-1.6",
+  "https://github.com/DercioFernandes/VIA-Marketplace",
+  "https://github.com/DercioFernandes/Kiseki-Fighters"
+];
 
 export default function Portfolio() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -95,7 +102,15 @@ export default function Portfolio() {
           </button>
           )}
           {/* Image Display */}
-          <Image src={images[currentImage]} width={200} height={250} alt="Gallery" className="rounded-lg w-half h-full" />
+          <Link href={links[currentImage]} target="_blank">
+            <Image 
+              src={images[currentImage]} 
+              width={200} 
+              height={140} 
+              alt="Gallery" 
+              className="rounded-lg w-[200px] h-[140px] object-cover transition-opacity duration-300 hover:opacity-50 cursor-pointer"
+            />
+          </Link>
           
           {/* Next Arrow */}
           {currentImage + 1 < images.length && (
