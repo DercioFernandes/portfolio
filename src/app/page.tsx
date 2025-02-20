@@ -34,8 +34,6 @@ const links = [
   "https://github.com/DercioFernandes/Kiseki-Fighters"
 ];
 
-const position: LatLngExpression = [55.857671413317064, 9.851414821036256]; // Explicitly typed
-
  
 export function Portfolio() {
 
