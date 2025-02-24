@@ -55,7 +55,7 @@ export default function Portfolio() {
           transition={{ duration: 0.5 }} 
           >
             <Image 
-              src="/images/me.png" 
+              src="/images/PFP.jpeg" 
               width={500} 
               height={500} 
               className="w-full h-full rounded-2xl object-cover" 
