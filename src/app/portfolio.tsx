@@ -26,18 +26,21 @@ export default function Portfolio() {
     const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
   
     return (
-      <div className="grid grid-cols-2 gap-4 p-8 h-screen overflow-hidden">
+      <div className="grid md:grid-cols-2 sm:grids-col-1 gap-4 p-8 h-screen ">
         {/* Headline & Navbar */}
-        <motion.div className="row-span-1 text-4xl  pl-10 pr-10 font-bold bg-richBlack rounded-2xl flex flex-col items-center justify-center"
-        initial={{ opacity: 0, y: -200 }} 
-        animate={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.5 }} 
+        <motion.div 
+          className="row-span-1 md:text-4xl sm:text-2xl !sm:pt-5
+                    pl-10 pr-10 font-bold bg-richBlack rounded-2xl 
+                    flex flex-col items-center justify-center"
+          initial={{ opacity: 0, y: -200 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }} 
         > 
-          Good Engineers Write Code, But Great Engineers Never Stop Learning. 
+          Good Engineers Write Code, But Great Engineers Never Stop Learning.
         </motion.div>
         
         {/* Image & Name Section */}
-        <div className="grid grid-cols-2 gap-4 row-span-2 h-full">
+        <div className="grid md:grid-cols-2 sm:grids-col-1 gap-4 row-span-2 h-full">
           {/* Left: Profile Image */}
           <motion.div className="flex-1 h-full"
           initial={{ opacity: 0, y: 200 }} 
@@ -65,7 +68,7 @@ export default function Portfolio() {
             </motion.div>
   
             {/* Map Component */}
-            <motion.div className="w-full h-full rounded-2xl overflow-hidden relative z-10"
+            <motion.div className="w-full h-full rounded-2xl overflow-hidden relative z-10 min-h-[300px]"
             initial={{ opacity: 0, x: 200 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.5 }} 
@@ -96,7 +99,7 @@ export default function Portfolio() {
   
   
         {/* Stats Section */}
-        <motion.div className="grid grid-cols-3 gap-4"
+        <motion.div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4"
         initial={{ opacity: 0, x: -200 }} // Start hidden & move up
         animate={{ opacity: 1, x: 0 }} // Fade in & slide to position
         transition={{ duration: 0.5 }} // Smooth transition
@@ -115,7 +118,7 @@ export default function Portfolio() {
           </div>
         </motion.div>
   
-        {/* Gallery & About Section */}
+        {/* Portolio & About Section */}
         <motion.div className="rounded-2xl bg-richBlack p-4"
         initial={{ opacity: 0, x: -200 }} 
         animate={{ opacity: 1, x: 0 }} 
@@ -123,7 +126,7 @@ export default function Portfolio() {
         >
           <h3 className="text-2xl font-bold mb-4 pl-2 ">My Projects</h3>
           
-          {/* Row Layout for Gallery */}
+          {/* Row Layout for Portolio */}
           <div className="flex flex-row items-center justify-center space-x-4">
             {/* Previous Arrow */}
             {currentImage > 0 && (
