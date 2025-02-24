@@ -2,20 +2,32 @@
 
 import Image from "next/image";
 import { useState} from "react";
-import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaFacebook, FaEnvelope, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import { motion } from "framer-motion";
 import MapWrapper from "./MapWrapper";
 
 
-const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png"];
+const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png", "/images/NormalWebsite1.png", "/images/NormalWebsite2.jpg", "/images/NormalWebsite3.jpg"];
 
 const links = [
   "https://github.com/XRD-Group-11/VR-CS-1.6",
   "https://github.com/DercioFernandes/VIA-Marketplace",
-  "https://github.com/DercioFernandes/Kiseki-Fighters"
+  "https://github.com/DercioFernandes/Kiseki-Fighters",
+  "https://github.com/DercioFernandes/portfolio",
+  "https://github.com/DercioFernandes/AnimeUltimaPAP",
+  "https://github.com/Mariaaa18/SEP4IOT"
 ];
+
+const titles = [
+  "VR CS-1.6 (Unity VR)",
+  "VIA-Marketplace (Java)",
+  "Kiseki Fighters (Unity)",
+  "My Portfolio (Next.Js)",
+  "Anime Ultima (PHP)",
+  "IOT Semester Project (C)"
+]
 
 
 export default function Portfolio() {
@@ -98,6 +110,9 @@ export default function Portfolio() {
                 <Link href="mailto:dercioarmandocc@gmail.com">
                   <FaEnvelope size={24} className="cursor-pointer hover:text-gray-500" />
                 </Link>
+                <Link href="https://github.com/DercioFernandes" target="_blank">
+                  <FaGithub size={24} className="cursor-pointer hover:text-gray-400" />
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -111,7 +126,7 @@ export default function Portfolio() {
         transition={{ duration: 0.5 }} // Smooth transition
         >
           <div className="bg-brightPink p-6 text-center rounded-2xl flex flex-col items-center justify-center">
-            <div className="text-4xl font-bold">15+</div>
+            <div className="text-4xl font-bold">6+</div>
             <div>Projects</div>
           </div>
           <div className="bg-lapisLazuli p-6 text-center rounded-2xl flex flex-col items-center justify-center">
@@ -148,18 +163,26 @@ export default function Portfolio() {
             
             {/* Image Display with Animation */}
             <Link href={links[currentImage]} target="_blank">
-              <motion.img
-                key={currentImage} // Key forces re-render on change
-                src={images[currentImage]}
-                width={200}
-                height={140}
-                alt="Gallery"
-                className="rounded-lg w-[200px] h-[140px] object-cover cursor-pointer"
-                initial={{ opacity: 0, y: -50 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                exit={{ opacity: 0, y: 50 }} 
-                transition={{ duration: 0.5 }} 
-              />
+              <div className="relative group w-[200px] h-[140px]">
+                {/* Image */}
+                <motion.img
+                  key={currentImage}
+                  src={images[currentImage]}
+                  width={200}
+                  height={140}
+                  alt="Gallery"
+                  className="rounded-lg w-full h-full object-cover cursor-pointer"
+                  initial={{ opacity: 0, y: -50 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  exit={{ opacity: 0, y: 50 }} 
+                  transition={{ duration: 0.5 }} 
+                />
+                
+                {/* Hover Text Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {titles[currentImage]}
+                </div>
+              </div>
             </Link>
   
             {/* Next Arrow */}
