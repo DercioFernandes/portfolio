@@ -8,7 +8,6 @@ import "leaflet/dist/leaflet.css";
 import { motion } from "framer-motion";
 import MapWrapper from "./MapWrapper";
 
-
 const images = ["/images/XRDev.png", "/images/NormalWebsite1.png", "/images/GameDev.png", "/images/NormalWebsite1.png", "/images/NormalWebsite2.jpg", "/images/NormalWebsite3.jpg"];
 
 const links = [
@@ -29,14 +28,10 @@ const titles = [
   "IOT Semester Project (C)"
 ]
 
-
 export default function Portfolio() {
-
     const [currentImage, setCurrentImage] = useState(0);
-  
     const nextImage = () => setCurrentImage((prev) => (prev + 1) % images.length);
     const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
-  
     return (
       <div className="grid md:grid-cols-2 sm:grids-col-1 gap-4 p-8 h-screen ">
         {/* Headline & Navbar */}
@@ -51,7 +46,7 @@ export default function Portfolio() {
           Good Engineers Write Code, But Great Engineers Never Stop Learning.
         </motion.div>
         
-        {/* Image & Name Section */}
+        {/* Image, Map & Name Section */}
         <div className="grid md:grid-cols-2 sm:grids-col-1 gap-4 row-span-2 h-full">
           {/* Left: Profile Image */}
           <motion.div className="flex-1 h-full"
@@ -67,8 +62,7 @@ export default function Portfolio() {
               alt="Profile" 
             />
           </motion.div>
-  
-          {/* Right: Name & Info Section */}
+          {/* Right: Map & Info Section */}
           <div className="flex flex-col h-full relative">
             {/* Positioned "Based in" Text */}
             <motion.div className="absolute top-2 left-2 text-bone bg-opacity-50 px-2 py-1 ml-10 rounded-md font-bold z-20"
@@ -78,7 +72,6 @@ export default function Portfolio() {
             >
               Based in:
             </motion.div>
-  
             {/* Map Component */}
             <motion.div className="w-full h-full rounded-2xl overflow-hidden relative z-10 min-h-[300px]"
             initial={{ opacity: 0, x: 200 }} 
@@ -87,8 +80,6 @@ export default function Portfolio() {
             >
               <MapWrapper />
             </motion.div>
-  
-  
             {/* Name + Info Section */}
             <motion.div 
               className="flex flex-col items-center w-full bg-tangerine rounded-2xl flex-grow justify-center p-7 mt-5"
@@ -116,7 +107,6 @@ export default function Portfolio() {
               </div>
             </motion.div>
           </div>
-  
         </div>
   
         {/* Stats Section */}
@@ -146,7 +136,6 @@ export default function Portfolio() {
         transition={{ duration: 0.5 }} 
         >
           <h3 className="text-2xl font-bold mb-4 pl-2 ">My Projects</h3>
-          
           {/* Row Layout for Portolio */}
           <div className="flex flex-row items-center justify-center space-x-4">
             {/* Previous Arrow */}
@@ -160,7 +149,6 @@ export default function Portfolio() {
                 />
               </button>
             )}
-            
             {/* Image Display with Animation */}
             <Link href={links[currentImage]} target="_blank">
               <div className="relative group w-[200px] h-[140px]">
@@ -184,7 +172,6 @@ export default function Portfolio() {
                 </div>
               </div>
             </Link>
-  
             {/* Next Arrow */}
             {currentImage + 1 < images.length && (
               <button onClick={nextImage} className="text-white text-3xl">
@@ -198,7 +185,6 @@ export default function Portfolio() {
             )}
           </div>
         </motion.div>
-  
         <motion.div className="rounded-2xl bg-richBlack"
         initial={{ opacity: 0, y: 200 }} 
         animate={{ opacity: 1, y: 0 }} 
@@ -209,7 +195,6 @@ export default function Portfolio() {
             I am a 21yo Software Engineer with a passion for coding. Specialized in Interactive Media, I look forward to any challenge, even if it&apos;s out of my specialization scope. My secret passions are XR, Machine Learning, and Game Development. With more than 6 years studying Software Development, learning about many languages and frameworks, on diverse areas of Software Engineering, I am able to bring you some new young blood full of dedication and love for the area. I look forward to writing the code of the future!
         </p>
         </motion.div>
-        
       </div>
     );
   }

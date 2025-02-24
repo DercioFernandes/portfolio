@@ -1,4 +1,4 @@
-"use client"; // Ensure it's client-side
+"use client";
 
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
