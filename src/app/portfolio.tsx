@@ -86,17 +86,23 @@ export default function Portfolio() {
             >
               <div className="text-lg font-semibold">Dercio Fernandes</div>
               <div className="flex gap-4 mt-2">
-                <FaLinkedin size={24} />
-                <FaInstagram size={24} />
-                <FaFacebook size={24} />
-                <FaEnvelope size={24} />
+                <Link href="https://www.linkedin.com/in/d%C3%A9rcio-fernandes/" target="_blank">
+                  <FaLinkedin size={24} className="cursor-pointer hover:text-blue-500" />
+                </Link>
+                <Link href="https://www.instagram.com/dercio_fernandes/" target="_blank">
+                  <FaInstagram size={24} className="cursor-pointer hover:text-pink-500" />
+                </Link>
+                <Link href="https://www.facebook.com/dercio.fernandes.96/" target="_blank">
+                  <FaFacebook size={24} className="cursor-pointer hover:text-blue-700" />
+                </Link>
+                <Link href="mailto:dercioarmandocc@gmail.com">
+                  <FaEnvelope size={24} className="cursor-pointer hover:text-gray-500" />
+                </Link>
               </div>
             </motion.div>
           </div>
   
         </div>
-  
-  
   
         {/* Stats Section */}
         <motion.div className="grid md:grid-cols-3 sm:grid-cols-1 gap-4"
@@ -177,7 +183,7 @@ export default function Portfolio() {
         >
           <h2 className="pt-5 pl-5 pr-5 text-2xl font-bold">About</h2>
           <p className="pt-1 pb-5 pl-5 pr-5 mt-2 text-white text-opacity-70">
-            I am a Software Engineer with a passion for coding. Specialized in Interactive Media, I look forward to any challenge, even if it&apos;s out of my specialization scope. My secret passions are XR, Machine Learning, and Game Development. With more than 6 years studying Software Development, learning about many languages and frameworks, on diverse areas of Software Engineering, I am able to bring you some new young blood full of dedication and love for the area. I look forward to writing the code of the future!
+            I am a 21yo Software Engineer with a passion for coding. Specialized in Interactive Media, I look forward to any challenge, even if it&apos;s out of my specialization scope. My secret passions are XR, Machine Learning, and Game Development. With more than 6 years studying Software Development, learning about many languages and frameworks, on diverse areas of Software Engineering, I am able to bring you some new young blood full of dedication and love for the area. I look forward to writing the code of the future!
         </p>
         </motion.div>
         
