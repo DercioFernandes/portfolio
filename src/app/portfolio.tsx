@@ -124,7 +124,7 @@ export default function Portfolio() {
             <div>Languages/Frameworks</div>
           </div>
           <div className="bg-pigmentGreen p-6 text-center rounded-2xl flex flex-col items-center justify-center">
-            <div className="text-4xl font-bold">1+</div>
+            <div className="text-4xl font-bold">2+</div>
             <div>Years Experience</div>
           </div>
         </motion.div>
@@ -192,7 +192,7 @@ export default function Portfolio() {
         >
           <h2 className="pt-5 pl-5 pr-5 text-2xl font-bold">About</h2>
           <p className="pt-1 pb-5 pl-5 pr-5 mt-2 text-white text-opacity-70">
-            I am a 21yo Software Engineer with a passion for coding. Specialized in Interactive Media, I look forward to any challenge, even if it&apos;s out of my specialization scope. My secret passions are XR, Machine Learning, and Game Development. With more than 6 years studying Software Development, learning about many languages and frameworks, on diverse areas of Software Engineering, I am able to bring you some new young blood full of dedication and love for the area. I look forward to writing the code of the future!
+            I am a 22yo Software Engineer with a passion for coding. Specialized in Interactive Media, I look forward to any challenge, even if it&apos;s out of my specialization scope. My secret passions are XR, Machine Learning, and Game Development. With more than 6 years studying Software Development, learning about many languages and frameworks, on diverse areas of Software Engineering, I am able to bring you some new young blood full of dedication and love for the area. I look forward to writing the code of the future!
         </p>
         </motion.div>
       </div>
